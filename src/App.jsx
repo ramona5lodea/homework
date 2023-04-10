@@ -39,6 +39,11 @@ function App() {
   const [todoList, setTodoList] = useState(TODOS_MOCK);
   const [isOpen, setIsOpen] = useState(false);
   const [todoId, setTodoId] = useState(null);
+  const [validation, setValidation] = useState({
+    title: "",
+    description: "",
+    isValid: true
+  })
   const formEl = useRef(null);
 
   const handleUpsertTodo = (e) => {
