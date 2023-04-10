@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Card from "./components/card/Card";
 import Input from "./components/input/Input";
 import TodoItem from "./components/todo-item/TodoItem";
@@ -127,8 +127,21 @@ function App() {
         <Modal isOpen={isOpen} onClose={handleOnClose}>
           <h2>{modalModeLabel}Todo</h2>
           <form ref={formEl} onSubmit={handleUpsertTodo}>
-            <Input name="title" placeholder="Title" type="text" required minLenght={3}/>
-            <TextArea name="description" placeholder="Description" required minLenght={3} />
+            <Input
+              name="title"
+              placeholder="Title"
+              type="text"
+              required
+              minLength={3}
+              maxLength={50}
+            />
+            <TextArea
+              name="description"
+              placeholder="Description"
+              required
+              minLength={3}
+              maxLength={100}
+            />
             <Button type="submit">{modalModeLabel}</Button>
           </form>
         </Modal>
